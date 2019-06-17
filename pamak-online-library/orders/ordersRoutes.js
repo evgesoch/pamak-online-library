@@ -18,12 +18,34 @@ router.get("/", (req, res, next) => {
     })
 });
 
+// Get one order by id (the wrong way)
+router.get("/wrong/:id", (req, res, next) => {
+    OrdersModel.findById(req.params.id).then((order) => {
+        if(order){
+            res.json(order);
+        } else {
+            res.sendStatus(404);
+        }
+    }).catch((err) => {
+        if (err){
+            throw err;
+        }
+    })
+});
+
 // Get one order by id
 router.get("/:id", (req, res, next) => {
     OrdersModel.findById(req.params.id).then((order) => {
         if(order){           
             axios.get("http://localhost:3050/customers/" + order.customerId).then(response => {
-                var orderResponse = {customerName: response.data.name, bookTitle: ""}
+                var orderResponse = {
+                        _id: order._id,
+                        customerName: response.data.name, 
+                        bookTitle: "", 
+                        orderDate: order.orderDate,
+                        deliveryDate: order.deliveryDate,
+                        __v : 0
+                };
                 axios.get("http://localhost:3000/books/" + order.bookId).then(response => {
                     orderResponse.bookTitle = response.data.title
                     res.send(orderResponse)
