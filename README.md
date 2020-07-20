@@ -11,7 +11,7 @@ In order to run the application, follow the steps below:
 1. Change the ENV variables inside the Dockerfiles to match your own credentials for MongoDB Atlas
 2. (**_The following instructions are only for running each container individually without docker-compose_**) ```$ cd``` into every service directory (e.g. ```$ cd books```) and build the service image, e.g. for the books service type the command ```$ docker build -t books_service:1.0```
 3. Then run the container with ```$ docker run -v "/$(pwd):/usr/src/books" --publish 3000:3000 --name bs books_service:1.0```
-4. Repeat for the other containers and you're good to go
+4. Repeat for the other containers (don't forget to change the port to _3050_ for customers and _3100_ for orders service) and you're good to go
 
 :information_source: No front-end has been implemented yet.
 
