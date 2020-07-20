@@ -37,7 +37,7 @@ router.get("/wrong/:id", (req, res, next) => {
 router.get("/:id", (req, res, next) => {
     OrdersModel.findById(req.params.id).then((order) => {
         if(order){           
-            axios.get("http://localhost:3050/customers/" + order.customerId).then(response => {
+            axios.get("http://192.168.99.100:3050/customers/" + order.customerId).then(response => {
                 var orderResponse = {
                         _id: order._id,
                         customerName: response.data.name, 
@@ -46,7 +46,7 @@ router.get("/:id", (req, res, next) => {
                         deliveryDate: order.deliveryDate,
                         __v : 0
                 };
-                axios.get("http://localhost:3000/books/" + order.bookId).then(response => {
+                axios.get("http://192.168.99.100:3000/books/" + order.bookId).then(response => {
                     orderResponse.bookTitle = response.data.title
                     res.send(orderResponse)
                 })
