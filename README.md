@@ -15,6 +15,6 @@ In order to run the application, follow the steps below:
 
 :information_source: No front-end has been implemented yet.
 
-:information_source: Connecting to MongoDB Atlas requires to establish a secure connection between the container environment and the Atlas Cloud. Follow this [guide](https://docs.docker.com/engine/security/https/) for more info on how to achieve secure connection.
+:information_source: Connecting to MongoDB Atlas requires establishing a secure connection between the container environment and the Atlas Cloud. Follow this [guide](https://docs.docker.com/engine/security/https/) for more info on how to achieve secure connection.
 
 :information_source: The _docker-compose_ variant of the app is under development.
