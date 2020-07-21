@@ -31,7 +31,7 @@ router.get("/:id", (req, res, next) => {
     })
 });
 
-// Create a new book 
+// Create a new book
 router.post("/", (req, res, next) => {
     var newBook = {
         title: req.body.title,
@@ -47,7 +47,7 @@ router.post("/", (req, res, next) => {
     });
     res.status(201).json({
         status: 201,
-        message: "New book: " + newBook.title + " added",        
+        message: "New book: " + newBook.title + " added",
     });
 });
 

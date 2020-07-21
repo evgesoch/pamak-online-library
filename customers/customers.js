@@ -17,7 +17,7 @@ app.use(morgan('dev'));
 app.use('/customers', customersRoutes);
 
 // Customers service listens
-const port = 3050; 
+const port = 3050;
 app.listen(port, () => {
     console.log("\n\nCustomers service started..");
 });

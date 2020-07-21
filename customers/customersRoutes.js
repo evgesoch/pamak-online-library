@@ -47,7 +47,7 @@ router.post("/", (req, res, next) => {
     });
     res.status(201).json({
         status: 201,
-        message: "New customer: " + newCustomer.name + " added",        
+        message: "New customer: " + newCustomer.name + " added",
     });
 });
 

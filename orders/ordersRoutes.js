@@ -36,12 +36,12 @@ router.get("/wrong/:id", (req, res, next) => {
 // Get one order by id
 router.get("/:id", (req, res, next) => {
     OrdersModel.findById(req.params.id).then((order) => {
-        if(order){           
+        if(order){
             axios.get("http://192.168.99.100:3050/customers/" + order.customerId).then(response => {
                 var orderResponse = {
                         _id: order._id,
-                        customerName: response.data.name, 
-                        bookTitle: "", 
+                        customerName: response.data.name,
+                        bookTitle: "",
                         orderDate: order.orderDate,
                         deliveryDate: order.deliveryDate,
                         __v : 0
@@ -52,14 +52,14 @@ router.get("/:id", (req, res, next) => {
                 })
             }).catch (error => {
                 throw error;
-            })            
+            })
         } else {
             res.sendStatus(404);
         }
     })
 });
 
-// Create a new order 
+// Create a new order
 router.post("/", (req, res, next) => {
     var newOrder = {
         customerId: mongoose.Types.ObjectId(req.body.customerId),
@@ -79,7 +79,7 @@ router.post("/", (req, res, next) => {
             orderID: order._id,
             customerID: newOrder.customerId,
             bookID: newOrder.bookId
-        } 
+        }
     });
 });
 

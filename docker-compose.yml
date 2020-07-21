@@ -1,0 +1,44 @@
+version: '3'
+services:
+    books:
+        build: ./books
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./books:/usr/src/books
+        deploy:
+            resources:
+                limits:
+                    cpus: '1.00'
+                    memory: 40M
+                reservations:
+                    cpus: '0.50'
+                    memory: 20M
+    customers:
+        build: ./customers
+        ports:
+            - "3050:3050"
+        volumes:
+            - ./customers:/usr/src/customers
+        deploy:
+            resources:
+                limits:
+                    cpus: '1.00'
+                    memory: 40M
+                reservations:
+                    cpus: '0.50'
+                    memory: 20M
+    orders:
+        build: ./orders
+        ports:
+            - "3100:3100"
+        volumes:
+            - ./orders:/usr/src/orders
+        deploy:
+            resources:
+                limits:
+                    cpus: '1.00'
+                    memory: 40M
+                reservations:
+                    cpus: '0.50'
+                    memory: 20M
