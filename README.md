@@ -2,7 +2,13 @@
 A minimal, containerized microservices application that manages an online library service.
 
 ## General info
-The app was developed in a pc running Windows 8.1 and the terminal used for setting up the Docker containers is **Git Bash**. 
+:information_source: The app was developed in a pc running Windows 8.1 and the terminal used for setting up the Docker containers is **Git Bash**.
+
+:information_source: No front-end has been implemented yet.
+
+:information_source: Connecting to MongoDB Atlas requires establishing a secure connection between the container environment and the Atlas Cloud. Follow this [guide](https://docs.docker.com/engine/security/https/) for more info on how to achieve secure connection.
+
+:information_source: The application was influenced by [Academind's Node.js tutorial](https://www.youtube.com/playlist?list=PL55RiY5tL51q4D-B63KBnygU6opNPFk_q).
 
 ## Setup
 In order to run the application, follow the steps below: 
@@ -14,7 +20,3 @@ In order to run the application, follow the steps below:
 ### By using docker-compose
 1. You can define the environment variables inside the _docker-compose.yml_ file instead of the _Dockerfiles_, but it's not necessary. But it would be better to store more building image logic into the _docker-compose.yml_ file rather than every individual service's _Dockerfile_.
 2. ```$ cd``` into the project directory and type ```$ docker-compose up```. The app is now running.
-
-:information_source: No front-end has been implemented yet.
-
-:information_source: Connecting to MongoDB Atlas requires establishing a secure connection between the container environment and the Atlas Cloud. Follow this [guide](https://docs.docker.com/engine/security/https/) for more info on how to achieve secure connection.
