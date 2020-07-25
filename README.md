@@ -13,7 +13,7 @@ A minimal, containerized microservices application that manages an online librar
 ## Setup
 In order to run the application, follow the steps below: 
 ### Without using docker-compose
-1. Change the ENV variables inside the Dockerfiles to match your own credentials for MongoDB Atlas.
+1. Change the _ENV_ variables inside the _Dockerfiles_ to match your own credentials for MongoDB Atlas.
 2. ```$ cd``` into every service directory (e.g. ```$ cd books```) and build the service image, e.g. for the books service type the command ```$ docker build -t books_service:1.0```.
 3. Then run the container with ```$ docker run -v "/$(pwd):/usr/src/books" --publish 3000:3000 --name bs books_service:1.0```.
 4. Repeat for the other containers (don't forget to change the port to _3050_ for customers and _3100_ for orders service) and you're good to go.
